@@ -1,6 +1,6 @@
 package com.example.incomestarter.starter;
 
-import com.example.incomestarter.model.IncomeRecord;
+import com.example.incomestarter.dto.IncomeResponseDto;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestTemplate;
@@ -13,7 +13,8 @@ public class IncomeClient {
     @Value("${api-url}")
     private String url;
 
-    public IncomeRecord[] fetchIncomeRecords() {
-        return restTemplate.getForObject(url, IncomeRecord[].class);
+    @SuppressWarnings("unused")
+    public IncomeResponseDto[] fetchIncomeResponse() {
+        return restTemplate.getForObject(url, IncomeResponseDto[].class);
     }
 }
